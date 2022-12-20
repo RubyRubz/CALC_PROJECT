@@ -1,0 +1,82 @@
+{
+  "name": "Batch225",
+  "description": "calculator project",
+  "version": "1.0.0",
+  "private": true,
+  "plugin": {
+    "directory": "index.html"
+  },
+  "path": {
+    "jquery": "./node_modules/jquery",
+    "dist": "./../dist/"
+  },
+  "files": {
+    "js": [
+      "./../dist/js/bundle.js"
+    ]
+  },
+  "filename": {
+    "js": "main.min.js",
+    "css": "style.min.css"
+  },
+  "lint": {
+    "sass": {
+      "nesting-depth": 0,
+      "no-ids": 0,
+      "property-sort-order": 0,
+      "no-color-keywords": 0,
+      "force-pseudo-nesting": 0,
+      "no-url-domains": 0,
+      "no-url-protocols": 0,
+      "no-transition-all": 0,
+      "no-important": 0,
+      "no-color-literals": 0,
+      "placeholder-in-extend": 0,
+      "no-trailing-whitespace": 0,
+      "class-name-format": 0
+    },
+    "es": {      
+      "indent": [
+        "error",
+        2
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "no-cond-assign": [
+        "error",
+        "always"
+      ],
+      "no-console": "off",
+      "no-css-comments": "off"
+    }
+  },
+  "devDependencies": {
+    "browser-sync": "*",
+    "browserify": "*",
+    "del": "6.0.0",
+    "gulp-clean-css": "*",
+    "gulp-concat": "*",
+    "gulp-eslint": "*",
+    "gulp-google-webfonts": "*",
+    "gulp-minify": "*",
+    "gulp-rename": "*",
+    "gulp-sass": "*",
+    "gulp-sass-lint": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-uglify": "*",
+    "vinyl-source-stream": "*"
+  },
+  "scripts": {
+    "postinstall": ""
+  },
+  "dependencies": {
+    "animate.css": "^4.1.1",
+    "bootstrap": "v4.3.1",
+    "gulp": "^4.0.2",
+    "jquery": "^3.6.2",
+    "node-sass": "^6.0.1",
+    "popper.js": "^1.16.1"
+  }
+}

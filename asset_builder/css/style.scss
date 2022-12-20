@@ -1,0 +1,13 @@
+// Import npm dependencies
+@import '../node_modules/bootstrap/scss/bootstrap';
+// @import 'vendors/animate.min.css';
+
+
+@import 'common/typography'; //fonts here
+@import 'common/global';  //html tags css
+
+@import 'partials/left_side'; //left part of the page
+@import 'partials/right_side'; //right part of the page
+@import 'partials/calculator'; // calculator
+
+@import 'common/animations'; //animations

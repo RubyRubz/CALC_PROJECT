@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YOOOOOOOOOOO!!!!!</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="./dist/css/style.min.css">
+</head>
+<body>
+
+<div class="container">
+	<div class="row">
+		<div class="col-6">
+			<h1 style="border:1px solid red; background: orange;" class="animate__animated animate__bounce animate__infinite">animate.css test</h1>
+
+			.....left section here
+		</div>
+
+		<div class="col-6">
+			<h1 style="border:1px solid blue; background: cyan;">Calculator here</h1>
+
+			<p>
+				<!--
+				CALCULATOR MODES:
+				data-value = 0; for simple 
+				data-value = 1; for scientific
+				data-value = 2; for currency converter
+				-->	
+				<button class="btns" data-value="0" data-type="mode">Mode</button>
+			</p>
+			
+			<p>
+				<button class="btns" data-value="plus" data-type="oper">+</button>
+				<button class="btns" data-value="minus" data-type="oper">-</button>
+				<button class="btns" data-value="divide" data-type="oper">/</button>
+				<button class="btns" data-value="multiply" data-type="oper">*</button>
+			</p>
+
+			<p>
+				<button class="btns" data-value="0" data-type="num">0</button>
+				<button class="btns" data-value="1" data-type="num">1</button>
+				<button class="btns" data-value="2" data-type="num">2</button>
+				<button class="btns" data-value="3" data-type="num">3</button>
+				<button class="btns" data-value="4" data-type="num">4</button>
+				<button class="btns" data-value="5" data-type="num">5</button>
+				<button class="btns" data-value="6" data-type="num">6</button>
+				<button class="btns" data-value="7" data-type="num">7</button>
+				<button class="btns" data-value="8" data-type="num">8</button>
+				<button class="btns" data-value="9" data-type="num">9</button>
+			</p>
+
+			<p>
+				<button class="btns" data-value="=" data-type="equal">=</button>
+			</p>
+
+		</div>	
+	</div>	
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  bootstrap modal test
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="./dist/js/main.min.js"></script>
+</body>
+</html>
