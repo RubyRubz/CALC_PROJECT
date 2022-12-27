@@ -1,5 +1,7 @@
-exports.convert =  (e) => { //anonymous function in es6 format
-//START EDITS    
-    console.log(`xxx button with value: ${e.target.dataset.value} was just clicked. its type is ${e.target.dataset.type}  :: convert.js`)
+exports.convert =  (e, calculator) => { //anonymous function in es6 format
+//START EDITS   
+    if(calculator.equals) {
+        console.log('convert.js do calculation',calculator);
+    }
 //END EDITS    
 };
