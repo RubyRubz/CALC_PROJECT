@@ -5,6 +5,7 @@ const convert  = require('./convert.js');
 
 exports.click =  (e, calculator) => { //anonymous function in es6 format
 //START EDITS  
+
     let screenNumber = 0;
 
     switch(e.target.dataset.type) {
@@ -99,7 +100,5 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
 
     //show number on calculator screen  
     document.getElementById("calc_screen").value = screenNumber;          
-
-
 //END EDITS    
 };
