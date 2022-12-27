@@ -33,8 +33,6 @@ type the command below to enable auto refresh and check code format:
     cd path/to/your/project/folder
     cd asset_builder
     gulp watch
-
-    if you get a gulp error, type the command: npm install -g gulp-cli
 ```
 
 ## Build assets for dev server ##
@@ -43,8 +41,6 @@ type the command below to compile the scripts and css files: (make sure the gulp
     cd path/to/your/project/folder
     cd asset_builder
     gulp
-
-    if you get a gulp error, type the command: npm install -g gulp-cli
 ```
 ## Build assets for live server ##
 type the command below to compile and minify the scripts and css files: (make sure the gulp watch is terminated using CTRL+C)
@@ -52,6 +48,4 @@ type the command below to compile and minify the scripts and css files: (make su
     cd path/to/your/project/folder
     cd asset_builder
     gulp production
-
-    if you get a gulp error, type the command: npm install -g gulp-cli
 ```

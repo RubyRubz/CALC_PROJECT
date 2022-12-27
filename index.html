@@ -10,51 +10,81 @@
 <body>
 
 <div class="container">
-	<div class="row">
-		<div class="col-6">
-			<h1 style="border:1px solid red; background: orange;" class="animate__animated animate__bounce animate__infinite">animate.css test</h1>
+	<div class="row" id="blue_row">
+		<div class="col-md-6 col-12 d-flex flex-column justify-content-center" id="left-side">
+			<h4 class="d-inline-block p-2 rounded align-self-start">Batch 225</h4>
+			<h1>Simple Calculator</h1>
 
-			.....left section here
+			<p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean cursus dapibus nibh vitae tristique.</p>
 		</div>
 
-		<div class="col-6">
-			<h1 style="border:1px solid blue; background: cyan;">Calculator here</h1>
+		<div class="col-md-6 col-12 d-flex flex-column justify-content-center align-items-center" id="right-side">
 
-			<p>
-				<!--
-				CALCULATOR MODES:
-				data-value = 0; for simple 
-				data-value = 1; for scientific
-				data-value = 2; for currency converter
-				-->	
-				<button class="btns" data-value="0" data-type="mode">Mode</button>
-			</p>
-			
-			<p>
-				<button class="btns" data-value="plus" data-type="oper">+</button>
-				<button class="btns" data-value="minus" data-type="oper">-</button>
-				<button class="btns" data-value="divide" data-type="oper">/</button>
-				<button class="btns" data-value="multiply" data-type="oper">*</button>
-			</p>
+			<div id="calculator" class="rounded p-3">				
 
-			<p>
-				<button class="btns" data-value="0" data-type="num">0</button>
-				<button class="btns" data-value="1" data-type="num">1</button>
-				<button class="btns" data-value="2" data-type="num">2</button>
-				<button class="btns" data-value="3" data-type="num">3</button>
-				<button class="btns" data-value="4" data-type="num">4</button>
-				<button class="btns" data-value="5" data-type="num">5</button>
-				<button class="btns" data-value="6" data-type="num">6</button>
-				<button class="btns" data-value="7" data-type="num">7</button>
-				<button class="btns" data-value="8" data-type="num">8</button>
-				<button class="btns" data-value="9" data-type="num">9</button>
-			</p>
+				<div class="row no-gutters">
+					<div class="col-12">
+						<div class="screen">
+							<div id="mode_screen">Mode: Simple</div>
+							<input type="text" id="calc_screen" name="calc_screen" value="0" />
+						</div>	
+					</div>	
 
-			<p>
-				<button class="btns" data-value="=" data-type="equal">=</button>
-			</p>
+					<div class="col-9">
+						<div class="row no-gutters" id="numbers">
+							<div class="col-4"><button class="btns btns-function-ac" data-value="7" data-type="clear">AC</button></div>
+
+							<!--
+							CALCULATOR MODES:
+							data-value = 0; for simple 
+							data-value = 1; for scientific
+							data-value = 2; for currency converter
+							-->								
+							<div class="col-8"><button class="btns btns-function-mode" data-value="0" data-type="mode">Mode</button></div>
+
+
+							<div class="col-4"><button class="btns btns-function-simple" data-value="1/x" data-type="num">1/x</button></div>
+							<div class="col-4"><button class="btns btns-function-simple" data-value="x²" data-type="num">x²</button></div>
+							<div class="col-4"><button class="btns btns-function-simple" data-value="√" data-type="num">√</button></div>	
+
+							<div class="col-4"><button class="btns" data-value="7" data-type="num">7</button></div>
+							<div class="col-4"><button class="btns" data-value="8" data-type="num">8</button></div>
+							<div class="col-4"><button class="btns" data-value="9" data-type="num">9</button></div>					
+
+							<div class="col-4"><button class="btns" data-value="4" data-type="num">4</button></div>
+							<div class="col-4"><button class="btns" data-value="5" data-type="num">5</button></div>
+							<div class="col-4"><button class="btns" data-value="6" data-type="num">6</button></div>
+
+							<div class="col-4"><button class="btns" data-value="1" data-type="num">1</button></div>
+							<div class="col-4"><button class="btns" data-value="2" data-type="num">2</button></div>
+							<div class="col-4"><button class="btns" data-value="3" data-type="num">3</button></div>
+
+							<div class="col-8"><button class="btns" data-value="0" data-type="num">0</button></div>
+							<div class="col-4"><button class="btns" data-value="." data-type="num">.</button></div>
+						</div>
+					</div>
+
+					<div class="col-3">
+						<div class="row no-gutters" id="operator-simple">
+							<div class="col-12"><button class="btns btns-function-back" data-value="" data-type="back">&lt;</button></div>								
+							<div class="col-12"><button class="btns btns-operator-simple" data-value="plus" data-type="oper">+</button></div>
+							<div class="col-12"><button class="btns btns-operator-simple" data-value="minus" data-type="oper">-</button></div>
+							<div class="col-12"><button class="btns btns-operator-simple" data-value="divide" data-type="oper">/</button></div>
+							<div class="col-12"><button class="btns btns-operator-simple" data-value="multiply" data-type="oper">*</button></div>
+							<div class="col-12"><button class="btns btns-operator-equal" data-value="=" data-type="equal">=</button></div>
+						</div>
+					</div>	
+
+				</div>
+					
+			</div>
 
 		</div>	
+
+		<div id="top-white-circle">0</div>
+		<div id="top-blue-square"></div>
+		<div id="bottom-white-circle">0</div>
+		<div id="bottom-blue-square"></div>
 	</div>	
 </div>
 
