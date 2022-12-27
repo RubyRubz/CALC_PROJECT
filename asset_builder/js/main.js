@@ -7,11 +7,12 @@ const animate = require('./includes/animations.js');
 const detect  = require('./includes/detect.js');
 
 const calculator = {
-  n1: 0, //initial concatenated digits
-  n2: 0, //last concatenated digits
+  n1: '0', //initial concatenated digits
+  n2: '0', //last concatenated digits
   operator: null, //mathematical operations that should be initiated
+  equals: false, // if true... it will execute ===> n1 (operator) n2  
   mode: 'Simple', //default mode of calculator i.e.
-  modes: ['Simple', 'Scientific', 'Converter'] //array of calculator modes (i.e. everytime mode button is clicked it will cycle to the next mode of this array)      
+  modes: ['Simple', 'Scientific', 'Converter'], //array of calculator modes (i.e. everytime mode button is clicked it will cycle to the next mode of this array)      
 }
 
 /**********************************************
