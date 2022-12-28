@@ -3,9 +3,9 @@ const simple = require('./simple.js');
 const scientific  = require('./scientific.js');
 const convert  = require('./convert.js');
 
+
 exports.click =  (e, calculator) => { //anonymous function in es6 format
 //START EDITS  
-
     let screenNumber = 0;
 
     switch(e.target.dataset.type) {
@@ -18,6 +18,20 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
         calculator.mode = calculator.modes[e.target.dataset.value] 
          //show mode on calculator screen 
         document.getElementById("mode_screen").innerHTML = `Mode: ${ calculator.mode }`;
+
+        //hide all buttons
+        let allDivs = document.getElementsByClassName(`functions`);
+        for (const allDiv of allDivs) {
+          allDiv.classList.remove('active');
+        }
+
+        //show buttons based on the selected mode
+        let divs = document.getElementsByClassName(`function_${calculator.mode}`);
+        for (const div of divs) {
+          div.classList.add('active');
+        }
+
+        return false;
         break;
 
       case "num":
@@ -25,72 +39,61 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
         document.getElementById("bottom-white-circle").innerHTML = e.target.dataset.value; 
         document.getElementById("top-white-circle").innerHTML = e.target.dataset.value;  
 
-        //assign inputted number in their respective calculator object   
-        // if (!calculator.operator) {        
-        //     calculator.n1 = (calculator.n1 == 0) ? e.target.dataset.value : calculator.n1 + e.target.dataset.value  
-        //     screenNumber = calculator.n1      
-        // } else {
-        //     calculator.n2 = (calculator.n2 == 0) ? e.target.dataset.value : calculator.n2 + e.target.dataset.value        
-        //     screenNumber = calculator.n2
-        // }
-
-        //this is the simplified version of the commented codes above
-        let currentNumber = (!calculator.operator) ? 'n1' : 'n2';    
-
         //stop concatenation if the inputted number already contain "." i.e. prevent 1.1.1.1 ... should be a proper decimal
-        if ( calculator[currentNumber].includes('.') && e.target.dataset.value === ".") return;
+        if ( calculator.numberPlaceholder[0].includes('.') && e.target.dataset.value === ".") return;
 
-        calculator[currentNumber] = (calculator[currentNumber] == 0) ? e.target.dataset.value : calculator[currentNumber] + e.target.dataset.value;
-        screenNumber = calculator[currentNumber];
+        //assign inputted number in their respective calculator object   
+        calculator.numberPlaceholder[0] = (calculator.numberPlaceholder[0] == 0) ? e.target.dataset.value : calculator.numberPlaceholder[0] + e.target.dataset.value;
+        screenNumber = calculator.numberPlaceholder[0];        
         break;
 
       case "back":
-        // if (!calculator.operator) {        
-        //     calculator.n1 = (calculator.n1.length < 2 ) ? 0 : calculator.n1.slice(0,-1);        
-        //     screenNumber = calculator.n1
-        // }  else {
-        //     calculator.n2 = (calculator.n2.length < 2 ) ? 0 : calculator.n2.slice(0,-1);        
-        //     screenNumber = calculator.n2
-        // }
-
-        //this is the simplified version of the commented codes above
-        let currentNumberToErase = (!calculator.operator) ? 'n1' : 'n2';        
-        calculator[currentNumberToErase] = (calculator[currentNumberToErase].length < 2 || undefined === calculator[currentNumberToErase].length) ? 0 : calculator[currentNumberToErase].slice(0,-1);        
-        screenNumber = calculator[currentNumberToErase];                
+        calculator.numberPlaceholder[0] = (calculator.numberPlaceholder[0].length < 2 || undefined === calculator.numberPlaceholder[0].length) ? '0' : calculator.numberPlaceholder[0].slice(0,-1);        
+        screenNumber = calculator.numberPlaceholder[0];                
         break;
 
       case "clear":
-        calculator.n1       = '0' 
-        calculator.n2       = '0'
-        calculator.operator = null
-        calculator.equals   = false
-        screenNumber        = '0'
+        //see main.js ... make sure to clear all calculator object values
+        calculator.equals            = false;
+        calculator.numberArray       = [];
+        calculator.numberPlaceholder = ['0', null];
+        screenNumber = '0'
+        console.log(calculator);
         break;
 
       case "oper":
-        calculator.operator = e.target.dataset.value
-        screenNumber = 0
+        //insert [number, operator] to numberArrays
+        calculator.numberArray.push([calculator.numberPlaceholder[0], e.target.dataset.value]);
+        //reset placeholder
+        calculator.numberPlaceholder = ['0', null];
+        //reset screen to display 0
+        screenNumber = '0'
+        console.log(calculator)
         break;
 
       case "equals":
+        //insert [number, null] to numberArrays
+        calculator.numberArray.push([calculator.numberPlaceholder[0], 'equals']);
+        //set equals to true to let simple/scientific/convert.js know that it should start computing
         calculator.equals = true
+
         // designate computation operations to corresponding js file
         switch( calculator.mode ) {
             case "Simple":
-                simple.simple(e, calculator);
+                screenNumber = simple.simple(e, calculator);
             break;
             
             case "Scientific":
-                scientific.scientific(e, calculator) 
+                screenNumber = scientific.scientific(e, calculator) 
             break;
 
             case "Converter":
-                convert.convert(e, calculator);
+                screenNumber = convert.convert(e, calculator);
             break;        
 
             default:
-                simple.simple(e, calculator);
-        }        
+                screenNumber = simple.simple(e, calculator);
+        } 
         break;
 
       default:
