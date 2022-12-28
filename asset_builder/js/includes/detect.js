@@ -100,6 +100,9 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
         // code block
     }
 
+    //show calculator object on debug screen
+    document.getElementById("debugScreen").innerHTML = JSON.stringify(calculator);    
+
     //show number on calculator screen  
     document.getElementById("calc_screen").value = screenNumber;          
 //END EDITS    
