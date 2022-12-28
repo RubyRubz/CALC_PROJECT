@@ -55,7 +55,7 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
 
         //this is the simplified version of the commented codes above
         let currentNumberToErase = (!calculator.operator) ? 'n1' : 'n2';        
-        calculator[currentNumberToErase] = (calculator[currentNumberToErase].length < 2 ) ? 0 : calculator[currentNumberToErase].slice(0,-1);        
+        calculator[currentNumberToErase] = (calculator[currentNumberToErase].length < 2 || undefined === calculator[currentNumberToErase].length) ? 0 : calculator[currentNumberToErase].slice(0,-1);        
         screenNumber = calculator[currentNumberToErase];                
         break;
 
@@ -74,7 +74,6 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
 
       case "equals":
         calculator.equals = true
-
         // designate computation operations to corresponding js file
         switch( calculator.mode ) {
             case "Simple":

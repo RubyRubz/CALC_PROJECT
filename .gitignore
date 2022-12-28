@@ -1,3 +1,4 @@
 asset_builder/node_modules/
 env.json
 package-lock.json
+dist/
