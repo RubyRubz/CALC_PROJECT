@@ -74,7 +74,6 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
 
       case "equals":
         calculator.equals = true
-
         // designate computation operations to corresponding js file
         switch( calculator.mode ) {
             case "Simple":
