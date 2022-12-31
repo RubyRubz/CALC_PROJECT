@@ -35,16 +35,20 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
     break;
     
     case "num":
+    calculator.numberPlaceholder = ['', null];  
     //change the value of the white bubble circles every time a number is clicked
     document.getElementById("bottom-white-circle").innerHTML = e.target.dataset.value; 
     document.getElementById("top-white-circle").innerHTML = e.target.dataset.value;  
-    
+
+   
     //stop concatenation if the inputted number already contain "." i.e. prevent 1.1.1.1 ... should be a proper decimal
     if ( calculator.numberPlaceholder[0].includes('.') && e.target.dataset.value === ".") return;
     
     //assign inputted number in their respective calculator object   
+    
     calculator.numberPlaceholder[0] = (calculator.numberPlaceholder[0] == 0) ? e.target.dataset.value : calculator.numberPlaceholder[0] + e.target.dataset.value;
-    screenNumber = calculator.numberPlaceholder[0];        
+    screenNumber = calculator.numberPlaceholder[0];   
+    
     break;
     
     case "back":
@@ -62,18 +66,17 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
     break;
     
     case "oper":
-    
+     
     //insert [number, operator] to numberArrays
     
     calculator.numberArray.push([calculator.numberPlaceholder[0], e.target.dataset.value])
+    
     
     switch(e.target.dataset.value) {
       case 'plus':
        
       // change dataset value from 'plus' to '+' for the simple.js equal to operate
-      if (calculator.numberPlaceholder[0] == 0) {
-        calculator.numberPlaceholder[0] = null;
-      }
+      
       e.target.dataset.value = '+';
       calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value]);  
       calculator.numberArray.push([calculator.numberPlaceholder[0], e.target.dataset.value]);
@@ -117,9 +120,8 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
     
     
     case "function":
-      if (calculator.numberPlaceholder[0] == null){
-        console.log('may null')
-      }
+
+     
     //insert [number, operator] to numberArrays
     calculator.numberArray.push([calculator.numberPlaceholder[0], e.target.dataset.value])
      
@@ -131,9 +133,7 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
       
       console.log(screenNumber)
       calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value])
-      calculator.numberArray.push([screenNumber])   
-      calculator.numberArray       = [screenNumber];
-      calculator.numberArray  = [];
+     
       break;
       
       case 'square':
@@ -143,9 +143,7 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
       console.log(screenNumber)
       
       calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value])
-      calculator.numberArray.push([screenNumber])     
-      calculator.numberArray       = [screenNumber];
-      calculator.numberArray  = [];
+     
       break;
       case 'squareRoot':
       calculator.numberPlaceholder = Math.sqrt(calculator.numberPlaceholder[0])
@@ -153,9 +151,7 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
       console.log(screenNumber)
       
       calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value])
-      calculator.numberArray.push([screenNumber])    
-      calculator.numberArray       = [screenNumber];
-      calculator.numberArray  = [];
+    
       break;
       
       default:

@@ -10,7 +10,7 @@ exports.simple =  (e, calculator) => { //anonymous function in es6 format
         let computeResult = finalResult.join(' ');
         console.log(computeResult)
         console.log(eval(computeResult));
-
+        
         //this is the value that will be on the calculator screen
         result = eval(computeResult);
         //END EDITS            
@@ -18,8 +18,8 @@ exports.simple =  (e, calculator) => { //anonymous function in es6 format
 
     //see main.js ... make sure to clear all calculator object values
     calculator.equals            = false;
-    calculator.numberArray       = [result];
-    //calculator.numberPlaceholder = ['', null];
+    calculator.numberArray       = [];
+    calculator.numberPlaceholder = [result, null];
     console.log('Simple.js cleared calculator object', calculator);
 
     return result;
