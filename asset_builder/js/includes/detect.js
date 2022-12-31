@@ -35,7 +35,7 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
     break;
     
     case "num":
-    calculator.numberPlaceholder = ['', null];  
+    ///calculator.numberPlaceholder = ['', null];  
     //change the value of the white bubble circles every time a number is clicked
     document.getElementById("bottom-white-circle").innerHTML = e.target.dataset.value; 
     document.getElementById("top-white-circle").innerHTML = e.target.dataset.value;  
