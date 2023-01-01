@@ -3,7 +3,7 @@ const simple = require('./simple.js');
 const scientific  = require('./scientific.js');
 const convert  = require('./convert.js');
 const functions  = require('./functions.js');
-
+const operators  = require('./operators.js');
 
 exports.click =  (e, calculator) => { //anonymous function in es6 format
   //START EDITS  
@@ -59,8 +59,6 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
     
     calculator.numberPlaceholder[0] = (calculator.numberPlaceholder[0] == 0) ? e.target.dataset.value : calculator.numberPlaceholder[0] + e.target.dataset.value;
     screenNumber = calculator.numberPlaceholder[0];   
-    
-    
     break;
     
     case "back":
@@ -79,50 +77,10 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
     
     case "oper":
     calculator.calculate = false;
-    //insert [number, operator] to numberArrays
-    
+    //insert [number, operator] to numberArrays  
     calculator.numberArray.push([calculator.numberPlaceholder[0], e.target.dataset.value])
-    
-    
-      switch(e.target.dataset.value) {
-        case 'plus':
-        
-        // change dataset value from 'plus' to '+' for the simple.js equal to operate
-        
-        e.target.dataset.value = '+';
-        calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value]);  
-        calculator.numberArray.push([calculator.numberPlaceholder[0], e.target.dataset.value]);
-        
-        
-        break;
-        case 'minus':
-        // change dataset value from 'minus' to '-' for the simple.js equal to operate
-        e.target.dataset.value = '-';
-        calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value]);
-        calculator.numberArray.push([calculator.numberPlaceholder[0], e.target.dataset.value]);
-        
-        
-        break;
-        case 'divide':
-        // change dataset value from 'divide' to '/' for the simple.js equal to operate
-        e.target.dataset.value = '/';
-        calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value]);
-        calculator.numberArray.push([calculator.numberPlaceholder[0], e.target.dataset.value]);
-        
-        
-        break;
-        case 'multiply':
-        // change dataset value from 'multiply' to '*' for the simple.js equal to operate
-        e.target.dataset.value = '*';
-        calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value]);
-        calculator.numberArray.push([calculator.numberPlaceholder[0], e.target.dataset.value]); 
-        
-        
-        break;  
-        default:
-        // code block     
-      }
-    
+    //call external file to evaluate the operator button        
+    operators.operator(e, calculator);
     //reset placeholder
     calculator.numberPlaceholder = ['0', null];
     //reset screen to display 0
@@ -132,13 +90,10 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
     
     
     case "function":
-    
     //insert [number, operator] to numberArrays
     calculator.numberArray.push([calculator.numberPlaceholder[0], e.target.dataset.value])
-    
-    functions.buttons(e, calculator, screenNumber);
-    
-    //reset placeholder
+    //call external file to evaluate the function button    
+    screenNumber = functions.function(e, calculator, screenNumber);
     calculator.numberPlaceholder = [screenNumber, null];
     //RESULT OF FUNCTION
     // screenNumber = calculator.numberPlaceholder
