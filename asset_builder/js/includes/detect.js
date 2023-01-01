@@ -83,44 +83,44 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
     calculator.numberArray.push([calculator.numberPlaceholder[0], e.target.dataset.value])
     
     
-    switch(e.target.dataset.value) {
-      case 'plus':
-      
-      // change dataset value from 'plus' to '+' for the simple.js equal to operate
-      
-      e.target.dataset.value = '+';
-      calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value]);  
-      calculator.numberArray.push([calculator.numberPlaceholder[0], e.target.dataset.value]);
-      
-      
-      break;
-      case 'minus':
-      // change dataset value from 'minus' to '-' for the simple.js equal to operate
-      e.target.dataset.value = '-';
-      calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value]);
-      calculator.numberArray.push([calculator.numberPlaceholder[0], e.target.dataset.value]);
-      
-      
-      break;
-      case 'divide':
-      // change dataset value from 'divide' to '/' for the simple.js equal to operate
-      e.target.dataset.value = '/';
-      calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value]);
-      calculator.numberArray.push([calculator.numberPlaceholder[0], e.target.dataset.value]);
-      
-      
-      break;
-      case 'multiply':
-      // change dataset value from 'multiply' to '*' for the simple.js equal to operate
-      e.target.dataset.value = '*';
-      calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value]);
-      calculator.numberArray.push([calculator.numberPlaceholder[0], e.target.dataset.value]); 
-      
-      
-      break;  
-      default:
-      // code block     
-    }
+      switch(e.target.dataset.value) {
+        case 'plus':
+        
+        // change dataset value from 'plus' to '+' for the simple.js equal to operate
+        
+        e.target.dataset.value = '+';
+        calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value]);  
+        calculator.numberArray.push([calculator.numberPlaceholder[0], e.target.dataset.value]);
+        
+        
+        break;
+        case 'minus':
+        // change dataset value from 'minus' to '-' for the simple.js equal to operate
+        e.target.dataset.value = '-';
+        calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value]);
+        calculator.numberArray.push([calculator.numberPlaceholder[0], e.target.dataset.value]);
+        
+        
+        break;
+        case 'divide':
+        // change dataset value from 'divide' to '/' for the simple.js equal to operate
+        e.target.dataset.value = '/';
+        calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value]);
+        calculator.numberArray.push([calculator.numberPlaceholder[0], e.target.dataset.value]);
+        
+        
+        break;
+        case 'multiply':
+        // change dataset value from 'multiply' to '*' for the simple.js equal to operate
+        e.target.dataset.value = '*';
+        calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value]);
+        calculator.numberArray.push([calculator.numberPlaceholder[0], e.target.dataset.value]); 
+        
+        
+        break;  
+        default:
+        // code block     
+      }
     
     //reset placeholder
     calculator.numberPlaceholder = ['0', null];
@@ -132,41 +132,40 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
     
     case "function":
     
-    
     //insert [number, operator] to numberArrays
     calculator.numberArray.push([calculator.numberPlaceholder[0], e.target.dataset.value])
     
-    switch(e.target.dataset.value) {
-      case 'reciprocal':
-      
-      calculator.numberPlaceholder = 1/(calculator.numberPlaceholder[0]);
-      screenNumber = calculator.numberPlaceholder
-      console.log(screenNumber)
-      calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value])
-      
-      break;
-      
-      case 'square':
-      calculator.numberPlaceholder = calculator.numberPlaceholder[0] ** 2;
-      
-      screenNumber = calculator.numberPlaceholder
-      console.log(screenNumber)
-      
-      calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value])
-      
-      break;
-      case 'squareRoot':
-      calculator.numberPlaceholder = Math.sqrt(calculator.numberPlaceholder[0])
-      screenNumber = calculator.numberPlaceholder
-      console.log(screenNumber)
-      
-      calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value])
-      
-      break;
-      
-      default:
-      // code block     
-    }  
+      switch(e.target.dataset.value) {
+        case 'reciprocal':
+        
+        calculator.numberPlaceholder = 1/(calculator.numberPlaceholder[0]);
+        screenNumber = calculator.numberPlaceholder
+        console.log(screenNumber)
+        calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value])
+        
+        break;
+        
+        case 'square':
+        calculator.numberPlaceholder = calculator.numberPlaceholder[0] ** 2;
+        
+        screenNumber = calculator.numberPlaceholder
+        console.log(screenNumber)
+        
+        calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value])
+        
+        break;
+        case 'squareRoot':
+        calculator.numberPlaceholder = Math.sqrt(calculator.numberPlaceholder[0])
+        screenNumber = calculator.numberPlaceholder
+        console.log(screenNumber)
+        
+        calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value])
+        
+        break;
+        
+        default:
+        // code block     
+      }  
     
     //reset placeholder
     calculator.numberPlaceholder = [screenNumber, null];
@@ -183,22 +182,22 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
     calculator.equals = true
     calculator.calculate = true
     // designate computation operations to corresponding js file
-    switch( calculator.mode ) {
-      case "Simple":
-      screenNumber = simple.simple(e, calculator);
-      break;
-      
-      case "Scientific":
-      screenNumber = scientific.scientific(e, calculator) 
-      break;
-      
-      case "Converter":
-      screenNumber = convert.convert(e, calculator);
-      break;        
-      
-      default:
-      screenNumber = simple.simple(e, calculator);
-    } 
+      switch( calculator.mode ) {
+        case "Simple":
+        screenNumber = simple.simple(e, calculator);
+        break;
+        
+        case "Scientific":
+        screenNumber = scientific.scientific(e, calculator) 
+        break;
+        
+        case "Converter":
+        screenNumber = convert.convert(e, calculator);
+        break;        
+        
+        default:
+        screenNumber = simple.simple(e, calculator);
+      } 
     break;
     
     default:
