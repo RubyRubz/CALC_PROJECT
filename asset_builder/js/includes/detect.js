@@ -35,12 +35,22 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
     break;
     
     case "num":
-    ///calculator.numberPlaceholder = ['', null];  
+    // CLEAR FOR NEW COMPUTATION
+    if (calculator.calculate == true) {
+      calculator.equals            = false;
+      calculator.numberArray       = [];
+      calculator.numberPlaceholder = [e.target.dataset.value, null];
+      screenNumber = '0'
+      calculator.calculate = false;
+      break;
+    }
+    
+    
     //change the value of the white bubble circles every time a number is clicked
     document.getElementById("bottom-white-circle").innerHTML = e.target.dataset.value; 
     document.getElementById("top-white-circle").innerHTML = e.target.dataset.value;  
-
-   
+    
+    
     //stop concatenation if the inputted number already contain "." i.e. prevent 1.1.1.1 ... should be a proper decimal
     if ( calculator.numberPlaceholder[0].includes('.') && e.target.dataset.value === ".") return;
     
@@ -48,6 +58,7 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
     
     calculator.numberPlaceholder[0] = (calculator.numberPlaceholder[0] == 0) ? e.target.dataset.value : calculator.numberPlaceholder[0] + e.target.dataset.value;
     screenNumber = calculator.numberPlaceholder[0];   
+    
     
     break;
     
@@ -66,7 +77,7 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
     break;
     
     case "oper":
-     
+    calculator.calculate = false;
     //insert [number, operator] to numberArrays
     
     calculator.numberArray.push([calculator.numberPlaceholder[0], e.target.dataset.value])
@@ -74,7 +85,7 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
     
     switch(e.target.dataset.value) {
       case 'plus':
-       
+      
       // change dataset value from 'plus' to '+' for the simple.js equal to operate
       
       e.target.dataset.value = '+';
@@ -105,7 +116,7 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
       calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value]);
       calculator.numberArray.push([calculator.numberPlaceholder[0], e.target.dataset.value]); 
       
-       
+      
       break;  
       default:
       // code block     
@@ -120,20 +131,19 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
     
     
     case "function":
-
-     
+    
+    
     //insert [number, operator] to numberArrays
     calculator.numberArray.push([calculator.numberPlaceholder[0], e.target.dataset.value])
-     
+    
     switch(e.target.dataset.value) {
       case 'reciprocal':
       
       calculator.numberPlaceholder = 1/(calculator.numberPlaceholder[0]);
-      screenNumber = calculator.numberPlaceholder  
-      
+      screenNumber = calculator.numberPlaceholder
       console.log(screenNumber)
       calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value])
-     
+      
       break;
       
       case 'square':
@@ -143,7 +153,7 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
       console.log(screenNumber)
       
       calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value])
-     
+      
       break;
       case 'squareRoot':
       calculator.numberPlaceholder = Math.sqrt(calculator.numberPlaceholder[0])
@@ -151,7 +161,7 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
       console.log(screenNumber)
       
       calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value])
-    
+      
       break;
       
       default:
@@ -159,7 +169,7 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
     }  
     
     //reset placeholder
-     calculator.numberPlaceholder = [screenNumber, null];
+    calculator.numberPlaceholder = [screenNumber, null];
     //RESULT OF FUNCTION
     // screenNumber = calculator.numberPlaceholder
     console.log(calculator)
@@ -171,7 +181,7 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
     calculator.numberArray.push([calculator.numberPlaceholder[0]]);
     //set equals to true to let simple/scientific/convert.js know that it should start computing
     calculator.equals = true
-    
+    calculator.calculate = true
     // designate computation operations to corresponding js file
     switch( calculator.mode ) {
       case "Simple":

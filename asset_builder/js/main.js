@@ -8,6 +8,7 @@ const detect  = require('./includes/detect.js');
 
 
 const calculator = {
+  calculate: false,
   numberArray: [],
   numberPlaceholder: ['0', null],
   equals: false, // if true... it will do computations
