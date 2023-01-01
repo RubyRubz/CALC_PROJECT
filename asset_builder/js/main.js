@@ -6,7 +6,9 @@ require('../node_modules/bootstrap/dist/js/bootstrap.min.js');
 const animate = require('./includes/animations.js');
 const detect  = require('./includes/detect.js');
 
+
 const calculator = {
+  calculate: false,
   numberArray: [],
   numberPlaceholder: ['0', null],
   equals: false, // if true... it will do computations

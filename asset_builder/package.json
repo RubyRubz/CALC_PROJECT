@@ -35,7 +35,7 @@
       "no-trailing-whitespace": 0,
       "class-name-format": 0
     },
-    "es": {      
+    "es": {
       "indent": [
         "error",
         2
