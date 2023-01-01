@@ -23,6 +23,30 @@ exports.function =  (e, calculator, screenNumber) => { //anonymous function in e
         
         calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value])        
         break;
+
+        case 'cos':
+        calculator.numberPlaceholder = Math.cos(calculator.numberPlaceholder[0])
+        screenNumber = calculator.numberPlaceholder
+        console.log(screenNumber)
+        
+        calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value])        
+        break;
+
+        case 'sin':
+        calculator.numberPlaceholder = Math.sin(calculator.numberPlaceholder[0])
+        screenNumber = calculator.numberPlaceholder
+        console.log(screenNumber)
+        
+        calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value])        
+        break;
+
+        case 'tan':
+        calculator.numberPlaceholder = Math.tan(calculator.numberPlaceholder[0])
+        screenNumber = calculator.numberPlaceholder
+        console.log(screenNumber)
+        
+        calculator.numberArray.pop([calculator.numberPlaceholder[0], e.target.dataset.value])        
+        break;
         
         default:
         // code block     
