@@ -31,20 +31,21 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
     for (const div of divs) {
       div.classList.add('active');
     }
+ 
 
     //hide operator buttons if converter mode
-    let operators = document.getElementsByClassName(`operators`);    
+    let operator_buttons = document.getElementsByClassName(`operators`);    
     if ( e.target.dataset.value == 2) {
-      for (const operator of operators) {
+      for (const operator of operator_buttons) {
         operator.classList.remove('active');
       }    
     } else {
       //show operators if not converter mode
-      for (const operator of operators) {
+      for (const operator of operator_buttons) {
         operator.classList.add('active');
       }          
-    }
-    
+    }   
+
     return false;
     break;
     
@@ -59,9 +60,11 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
       break;
     }
     
+    
     //change the value of the white bubble circles every time a number is clicked
     document.getElementById("bottom-white-circle").innerHTML = e.target.dataset.value; 
     document.getElementById("top-white-circle").innerHTML = e.target.dataset.value;  
+    
     
     //stop concatenation if the inputted number already contain "." i.e. prevent 1.1.1.1 ... should be a proper decimal
     if ( calculator.numberPlaceholder[0].includes('.') && e.target.dataset.value === ".") return;
@@ -125,11 +128,11 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
         break;
         
         case "Scientific":
-        screenNumber = scientific.scientific(e, calculator);
+        screenNumber = scientific.scientific(e, calculator) 
         break;
         
         case "Converter":
-        convert.convert(e, calculator);
+        screenNumber = convert.convert(e, calculator);
         break;        
         
         default:
