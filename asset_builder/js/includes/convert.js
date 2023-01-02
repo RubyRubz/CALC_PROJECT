@@ -7,12 +7,16 @@ exports.convert =  (e, calculator) => { //anonymous function in es6 format
         let from = document.getElementById("from_drop").value;
         let to = document.getElementById("to_drop").value;
 
+        if (from === "" || to === "") {
+          alert('ERROR: Please select From/To Currency');
+          return;
+        }
+
         const xhttp = new XMLHttpRequest();
         //source of conversion data based on 'from dropdown'.. i.e usd.json, php.json, eur.json
         xhttp.open("GET", `http://www.floatrates.com/daily/${from}.json`, true);
         //get data
         xhttp.send();
-
 
         xhttp.onreadystatechange = function() {
           //if successful in getting data
@@ -23,9 +27,16 @@ exports.convert =  (e, calculator) => { //anonymous function in es6 format
             result = httpResult[to].rate * Number(calculator.numberPlaceholder[0]);
             //display on the screen
             document.getElementById("calc_screen").value = result;
+
+            //see main.js ... make sure to clear all calculator object values
+            calculator.calculate         = false;
+            calculator.equals            = false;
+            calculator.numberArray       = [];
+            calculator.numberPlaceholder = ['0', null];  
+
           } else {
             //display loading message on screen
-            document.getElementById("calc_screen").value = 'Fetching API... Please wait';
+            document.getElementById("calc_screen").value = 'Please wait...';
           }
         };
 
@@ -36,11 +47,4 @@ exports.convert =  (e, calculator) => { //anonymous function in es6 format
         };
         //END EDITS            
     }
-
-    //see main.js ... make sure to clear all calculator object values
-    calculator.equals            = false;
-    calculator.numberArray       = [];
-    //calculator.numberPlaceholder = ['0', null];
-    // calculator.converterPlaceholder = null;
-    //console.log('Simple.js cleared calculator object', calculator);
 };
