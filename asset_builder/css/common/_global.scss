@@ -83,3 +83,24 @@ h6 {
     animation: .25s ease 0s 1 pulse;
   }   
 }
+
+footer {
+  text-align: center;
+  font-family: 'Stint Ultra Expanded', serif;
+  font-size: 15px;
+  font-weight: bold;
+
+  p {
+    color: red;
+  }
+
+  span {
+    border-right: 1px solid black;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    &:nth-of-type(3) {
+      border-right: 0;
+    }
+  }
+}
