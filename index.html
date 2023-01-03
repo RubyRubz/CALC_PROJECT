@@ -9,8 +9,6 @@
     <link rel="stylesheet" type="text/css" href="./dist/css/style.min.css">
 </head>
 <body>
-	<div id="demo"></div>
-<pre id="debugScreen" style="background: black; color: green; height: 50px; width: 100%; font-size: 14px; white-space: pre-wrap;"></pre>
 <div class="container">
 	<div class="row" id="blue_row">
 		<div class="col-md-6 col-12 d-flex flex-column justify-content-center" id="left-side">
@@ -18,6 +16,8 @@
 			<h1>Simple Calculator</h1>
 
 			<p class="mt-2">A web-based calculator that doesn't skimp on simplicity or functionality. It has the basic operations and can be put in either mode: Simple Mode which is just that, a simple calculator; Apply Trigonometry mode where you can enable the calculation of sine, cosine, tangent, inverse tangent and uses circular functions; and Currency Converter mode which allows quick conversion for 150 currencies in real-time.</p>
+
+			<pre id="debugScreen" style="background: black; color: green; height: 80px; width: 100%; font-size: 14px; white-space: pre-wrap;"></pre>
 		</div>
 
 		<div class="col-md-6 col-12 d-flex flex-column justify-content-center align-items-center" id="right-side">
@@ -34,7 +34,7 @@
 
 					<div class="col-9">
 						<div class="row no-gutters" id="numbers">
-							<div class="col-4"><button class="btns btns-function-ac" data-value="7" data-type="clear">AC</button></div>
+							<div class="col-4"><button id="num_Escape" class="btns btns-function-ac" data-value="7" data-type="clear">AC</button></div>
 							<!--
 							CALCULATOR MODES:
 							data-value = 0; for simple 
@@ -47,8 +47,8 @@
 								<select id="from_drop" class="currency_drop">
 									<option value="">From</option>
 									<option value="php">PHP &nbsp; - Philippine Peso</option>
-								  <option value="usd">USD &nbsp; - U.S. Dollar</option>
-								  <option value="aed">AED &nbsp; - U.A.E Dirham</option>
+									<option value="usd">USD &nbsp; - U.S. Dollar</option>
+									<option value="aed">AED &nbsp; - U.A.E Dirham</option>
 									<option value="afn">AFN &nbsp; - Afghan afghani</option>
 									<option value="all">ALL &nbsp; - Albanian lek</option>
 									<option value="amd">AMD &nbsp; - Armenia Dram</option>
@@ -195,16 +195,15 @@
 									<option value="yer">YER &nbsp; - Yemeni rial</option>
 									<option value="zar">ZAR &nbsp; - South African Rand</option>
 									<option value="zmw">ZMW &nbsp; - Zambian kwacha</option>
-    
-								</select>
+    							</select>
 							</div>
 
 							<div class="col-6 functions function_Converter">
 								<select id="to_drop" class="currency_drop">
 									<option value="">To</option>
-							    <option value="php">PHP &nbsp; - Philippine Peso</option>
-								  <option value="usd">USD &nbsp; - U.S. Dollar</option>
-								  <option value="aed">AED &nbsp; - U.A.E Dirham</option>
+									<option value="php">PHP &nbsp; - Philippine Peso</option>
+									<option value="usd">USD &nbsp; - U.S. Dollar</option>
+									<option value="aed">AED &nbsp; - U.A.E Dirham</option>
 									<option value="afn">AFN &nbsp; - Afghan afghani</option>
 									<option value="all">ALL &nbsp; - Albanian lek</option>
 									<option value="amd">AMD &nbsp; - Armenia Dram</option>
@@ -362,31 +361,31 @@
 							<div class="col-4 functions function_Simple active"><button class="btns" data-value="square" data-type="function">x²</button></div>
 							<div class="col-4 functions function_Simple active"><button class="btns" data-value="squareRoot" data-type="function">√</button></div>	
 
-							<div class="col-4"><button class="btns" data-value="7" data-type="num">7</button></div>
-							<div class="col-4"><button class="btns" data-value="8" data-type="num">8</button></div>
-							<div class="col-4"><button class="btns" data-value="9" data-type="num">9</button></div>					
+							<div class="col-4"><button id="num_7" class="btns" data-value="7" data-type="num">7</button></div>
+							<div class="col-4"><button id="num_8" class="btns" data-value="8" data-type="num">8</button></div>
+							<div class="col-4"><button id="num_9" class="btns" data-value="9" data-type="num">9</button></div>					
 
-							<div class="col-4"><button class="btns" data-value="4" data-type="num">4</button></div>
-							<div class="col-4"><button class="btns" data-value="5" data-type="num">5</button></div>
-							<div class="col-4"><button class="btns" data-value="6" data-type="num">6</button></div>
+							<div class="col-4"><button id="num_4" class="btns" data-value="4" data-type="num">4</button></div>
+							<div class="col-4"><button id="num_5" class="btns" data-value="5" data-type="num">5</button></div>
+							<div class="col-4"><button id="num_6" class="btns" data-value="6" data-type="num">6</button></div>
 
 							<div class="col-4"><button id="num_1" class="btns" data-value="1" data-type="num">1</button></div>
-							<div class="col-4"><button class="btns" data-value="2" data-type="num">2</button></div>
-							<div class="col-4"><button class="btns" data-value="3" data-type="num">3</button></div>
+							<div class="col-4"><button id="num_2" class="btns" data-value="2" data-type="num">2</button></div>
+							<div class="col-4"><button id="num_3" class="btns" data-value="3" data-type="num">3</button></div>
 
-							<div class="col-8"><button class="btns" data-value="0" data-type="num">0</button></div>
-							<div class="col-4"><button class="btns" data-value="." data-type="num">.</button></div>
+							<div class="col-8"><button id="num_0" class="btns" data-value="0" data-type="num">0</button></div>
+							<div class="col-4"><button id="num_." class="btns" data-value="." data-type="num">.</button></div>
 						</div>
 					</div>
 
 					<div class="col-3">
 						<div class="row no-gutters" id="operator-simple">
-							<div class="col-12"><button class="btns btns-function-back" data-value="" data-type="back">CE</button></div>								
-							<div class="col-12 operators active"><button class="btns btns-operator-simple" data-value="plus" data-type="oper">+</button></div>
-							<div class="col-12 operators active"><button class="btns btns-operator-simple" data-value="-" data-type="oper">-</button></div>
-							<div class="col-12 operators active"><button class="btns btns-operator-simple" data-value="/" data-type="oper">/</button></div>
-							<div class="col-12 operators active"><button class="btns btns-operator-simple" data-value="*" data-type="oper">*</button></div>
-							<div class="col-12"><button class="btns btns-operator-equal" data-value="=" data-type="equals">=</button></div>
+							<div class="col-12"><button id="num_Backspace" class="btns btns-function-back" data-value="" data-type="back">CE</button></div>								
+							<div class="col-12 operators active"><button id="num_+" class="btns btns-operator-simple" data-value="plus" data-type="oper">+</button></div>
+							<div class="col-12 operators active"><button id="num_-" class="btns btns-operator-simple" data-value="-" data-type="oper">-</button></div>
+							<div class="col-12 operators active"><button id="num_/" class="btns btns-operator-simple" data-value="/" data-type="oper">/</button></div>
+							<div class="col-12 operators active"><button id="num_*" class="btns btns-operator-simple" data-value="*" data-type="oper">*</button></div>
+							<div class="col-12"><button id="num_Enter" class="btns btns-operator-equal" data-value="=" data-type="equals">=</button></div>
 						</div>
 					</div>	
 
