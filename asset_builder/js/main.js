@@ -5,6 +5,7 @@ require('../node_modules/bootstrap/dist/js/bootstrap.min.js');
 //Include separated files
 const animate = require('./includes/animations.js');
 const detect  = require('./includes/detect.js');
+const keyboard  = require('./includes/keyboard.js');
 
 
 const calculator = {
@@ -30,3 +31,14 @@ for (i = 0; i < btn.length; i++) {
     animate.blue();
   })
 }
+
+/**********************************************
+  DETECT KEYBOARD INPUT
+ **********************************************/
+const key = document.getElementById("calc_screen"); 
+key.addEventListener('keyup', (event) => {
+  event.preventDefault()
+
+  keyboard.type(event, calculator);
+  console.log(event);
+});  

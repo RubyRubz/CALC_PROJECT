@@ -31,7 +31,21 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
     for (const div of divs) {
       div.classList.add('active');
     }
-    
+ 
+
+    //hide operator buttons if converter mode
+    let operator_buttons = document.getElementsByClassName(`operators`);    
+    if ( e.target.dataset.value == 2) {
+      for (const operator of operator_buttons) {
+        operator.classList.remove('active');
+      }    
+    } else {
+      //show operators if not converter mode
+      for (const operator of operator_buttons) {
+        operator.classList.add('active');
+      }          
+    }   
+
     return false;
     break;
     
