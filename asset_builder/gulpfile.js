@@ -71,7 +71,8 @@ gulp.task('lintScripts', function () {
                 "es6": true
             },            
             "extends": "eslint:recommended",
-            'rules': package.lint.es         
+            'rules': package.lint.es,
+            'fix': true         
           }
         )
       )
