@@ -40,3 +40,10 @@ key.addEventListener('keydown', function(event){
   keyboard.type(event, calculator);
   event.preventDefault()
 });
+
+/**********************************************
+  AUTO FOCUS ON THE SCREEN INPUT
+ **********************************************/
+window.onload = function() {
+  document.getElementById("calc_screen").focus();
+}
