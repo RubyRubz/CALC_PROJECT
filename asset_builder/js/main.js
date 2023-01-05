@@ -36,6 +36,7 @@ for (i = 0; i < btn.length; i++) {
   DETECT KEYBOARD INPUT
  **********************************************/
 const key = document.getElementById("calc_screen");
-key.addEventListener('keyup', function(event){
+key.addEventListener('keydown', function(event){
   keyboard.type(event, calculator);
-});  
+  event.preventDefault()
+});
