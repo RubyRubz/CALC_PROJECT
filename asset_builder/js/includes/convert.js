@@ -14,7 +14,7 @@ exports.convert =  (e, calculator) => { //anonymous function in es6 format
 
         const xhttp = new XMLHttpRequest();
         //source of conversion data based on 'from dropdown'.. i.e usd.json, php.json, eur.json
-        xhttp.open("GET", `http://www.floatrates.com/daily/${from}.json`, true);
+        xhttp.open("GET", `https://www.floatrates.com/daily/${from}.json`, true);
         //get data
         xhttp.send();
 
