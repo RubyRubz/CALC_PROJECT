@@ -1,4 +1,14 @@
-exports.type = (event, value) => { //anonymous function in es6 format
+exports.type = (e, value) => { //anonymous function in es6 format
   //this will find element in index.html that has an id="num_XXX" base on the event.key
-  document.getElementById("num_" + event.key).click();
+  let button = document.getElementById("num_" + e.key);
+  if (button) {
+    // if button with id num_xxx is found click it
+        button.click();
+  } else {
+    // do nothing if button can't be found
+    e.stopPropagation()
+    
+  }
+
+
 };
