@@ -7089,7 +7089,8 @@ footer {
   text-align: center;
   font-family: 'Stint Ultra Expanded', serif;
   font-size: 15px;
-  font-weight: bold; }
+  font-weight: bold;
+  padding-top: 15px; }
   footer p {
     color: red;
     margin-bottom: 0; }
