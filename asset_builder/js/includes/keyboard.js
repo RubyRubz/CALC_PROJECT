@@ -9,6 +9,4 @@ exports.type = (e, value) => { //anonymous function in es6 format
     e.stopPropagation()
     
   }
-
-
 };
