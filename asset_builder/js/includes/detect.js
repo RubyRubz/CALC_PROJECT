@@ -8,8 +8,13 @@ const operators  = require('./operators.js');
 exports.click =  (e, calculator) => { //anonymous function in es6 format
   //START EDITS  
   let screenNumber = 0;
+  // To bring back cursor to calc_screen after every operation,numb,mode clicked
+  document.getElementById('calc_screen').focus();
+
   
+
   switch(e.target.dataset.type) {
+    
     case "mode":
     let modeIndex = e.target.dataset.value; 
     //cycle thru array of calculator.modes        
@@ -51,12 +56,14 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
     
     case "num":
     // CLEAR FOR NEW COMPUTATION
+    
     if (calculator.calculate == true) {
       calculator.equals            = false;
       calculator.numberArray       = [];
       calculator.numberPlaceholder = [e.target.dataset.value, null];
-      screenNumber = '0'
+      screenNumber = calculator.numberPlaceholder[0]; 
       calculator.calculate = false;
+      
       break;
     }
     
@@ -73,6 +80,7 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
     
     calculator.numberPlaceholder[0] = (calculator.numberPlaceholder[0] == 0) ? e.target.dataset.value : calculator.numberPlaceholder[0] + e.target.dataset.value;
     screenNumber = calculator.numberPlaceholder[0];   
+    
     break;
     
     case "back":
@@ -90,6 +98,7 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
     break;
     
     case "oper":
+    
     calculator.calculate = false;
     //insert [number, operator] to numberArrays  
     calculator.numberArray.push([calculator.numberPlaceholder[0], e.target.dataset.value])
@@ -150,4 +159,7 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
   //show number on calculator screen  
   document.getElementById("calc_screen").value = screenNumber;          
   //END EDITS    
+
+
+  
 };
