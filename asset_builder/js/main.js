@@ -8,6 +8,7 @@ const detect  = require('./includes/detect.js');
 const keyboard  = require('./includes/keyboard.js');
 
 
+
 const calculator = {
   calculate: false,
   numberArray: [],
@@ -35,10 +36,16 @@ for (i = 0; i < btn.length; i++) {
 /**********************************************
   DETECT KEYBOARD INPUT
  **********************************************/
-const key = document.getElementById("calc_screen"); 
-key.addEventListener('keyup', (event) => {
-  event.preventDefault()
+  const key = document.getElementById("calc_screen");
 
+key.addEventListener('keydown', function(event) {
+  
   keyboard.type(event, calculator);
-  console.log(event);
-});  
+  event.preventDefault()
+});
+
+document.getElementById('calc_screen').addEventListener('blur', function () {
+  setTimeout(function () {
+    document.getElementById('calc_screen').focus();
+  }, 1000); // focus the element again after 1 second
+});
