@@ -48,9 +48,31 @@ key.addEventListener('keydown', function(event){
 window.onload = function() {
   document.getElementById("calc_screen").focus();
 }
-document.getElementById('calc_screen').addEventListener('blur', function () {
-  setTimeout(function () {
+
+
+/**********************************************
+  GO BACK TO AUTOFOCUS AFTER CLICKING MOUSE OUTSIDE THE DIV CONTAINER
+ **********************************************/
+document.addEventListener('click', function(event) {
+  if (!document.getElementById('calculator').contains(event.target)) {
     document.getElementById('calc_screen').focus();
-  }, 1000); // focus the element again after 1 second
+  } else if (!document.getElementById('from_drop').contains(event.target) && !document.getElementById('to_drop').contains(event.target)){                           
+    document.getElementById('calc_screen').focus();
+  } 
+
 });
 
+
+/**********************************************
+  WHEN DROP DOWN IS ACTIVE FOR SELECT OPTION "FROM DROP" & "TO DROP" REMOVE FOCUS SO IT WON'T CLOSE
+ **********************************************/
+document.querySelector('#from_drop').addEventListener('blur', function() {
+  if (document.querySelector('#calc_screen') !== document.activeElement) {
+    document.querySelector('#calc_screen').focus();
+  }
+});
+document.querySelector('#to_drop').addEventListener('blur', function() {
+  if (document.querySelector('#calc_screen') !== document.activeElement) {
+    document.querySelector('#calc_screen').focus();
+  }
+});
