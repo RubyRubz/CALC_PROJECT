@@ -15,7 +15,7 @@ const calculator = {
   numberPlaceholder: ['0', null],
   equals: false, // if true... it will do computations
   mode: 'Simple', //default mode of calculator i.e.
-  modes: ['Simple', 'Scientific', 'Converter'], //array of calculator modes (i.e. everytime mode button is clicked it will cycle to the next mode of this array)      
+  modes: ['Simple', 'Scientific', 'Converter', 'Length'], //array of calculator modes (i.e. everytime mode button is clicked it will cycle to the next mode of this array)      
 }
 
 /**********************************************
@@ -55,9 +55,14 @@ window.onload = function() {
  **********************************************/
 document.addEventListener('click', function(event) {
   if (!document.getElementById('calculator').contains(event.target)) {
-    document.getElementById('calc_screen').focus();
-  } else if (!document.getElementById('from_drop').contains(event.target) && !document.getElementById('to_drop').contains(event.target)){                           
-    document.getElementById('calc_screen').focus();
+    document.querySelector('#calc_screen').focus();
+  } else if (
+      !document.getElementById('from_drop').contains(event.target) && 
+      !document.getElementById('to_drop').contains(event.target) &&
+      !document.getElementById('from_length').contains(event.target) &&
+      !document.getElementById('to_length').contains(event.target)
+    ){                           
+    document.querySelector('#calc_screen').focus();
   } 
 
 });
@@ -71,7 +76,20 @@ document.querySelector('#from_drop').addEventListener('blur', function() {
     document.querySelector('#calc_screen').focus();
   }
 });
+
 document.querySelector('#to_drop').addEventListener('blur', function() {
+  if (document.querySelector('#calc_screen') !== document.activeElement) {
+    document.querySelector('#calc_screen').focus();
+  }
+});
+
+document.querySelector('#from_length').addEventListener('blur', function() {
+  if (document.querySelector('#calc_screen') !== document.activeElement) {
+    document.querySelector('#calc_screen').focus();
+  }
+});
+
+document.querySelector('#to_length').addEventListener('blur', function() {
   if (document.querySelector('#calc_screen') !== document.activeElement) {
     document.querySelector('#calc_screen').focus();
   }

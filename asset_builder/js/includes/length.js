@@ -1,30 +1,31 @@
-exports.convert =  (e, calculator) => { //anonymous function in es6 format
+exports.length =  (e, calculator) => { //anonymous function in es6 format
     //check if equals button was clicked
     if(calculator.equals) {
         //START EDITS    
         let result = ""
         //get value of From/To from the selected currency dropdown
-        let from = document.getElementById("from_drop").value;
-        let to = document.getElementById("to_drop").value;
+        let from = document.getElementById("from_length").value;
+        let to = document.getElementById("to_length").value;
 
         if (from === "" || to === "") {
-          alert('ERROR: Please select From/To Currency');
+          alert('ERROR: Please select From/To Length');
           return;
         }
 
         const xhttp = new XMLHttpRequest();
         //source of conversion data based on 'from dropdown'.. i.e usd.json, php.json, eur.json
-        xhttp.open("GET", `https://www.floatrates.com/daily/${from}.json`, true);
+        xhttp.open("GET", `https://batch225-calculator.b4a.app/convert/length/${from}`, true);
         //get data
         xhttp.send();
 
         xhttp.onreadystatechange = function() {
           //if successful in getting data
           if (this.readyState == 4 && this.status == 200) {
+          	
             //string to object conversion
             let httpResult = JSON.parse(xhttp.responseText)
             //multiply the currency rate based on user's input
-            result = httpResult[to].rate * Number(calculator.numberPlaceholder[0]);
+            result = httpResult.data.data[to] * Number(calculator.numberPlaceholder[0]);
             //display on the screen
             document.getElementById("calc_screen").value = String(result).slice(0,14);
 
@@ -45,6 +46,6 @@ exports.convert =  (e, calculator) => { //anonymous function in es6 format
           //display error message on screen
           document.getElementById("calc_screen").value = 'API Error';
         };
-        //END EDITS            
+        // //END EDITS            
     }
 };
