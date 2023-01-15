@@ -26,7 +26,7 @@ exports.convert =  (e, calculator) => { //anonymous function in es6 format
             //multiply the currency rate based on user's input
             result = httpResult[to].rate * Number(calculator.numberPlaceholder[0]);
             //display on the screen
-            document.getElementById("calc_screen").value = result;
+            document.getElementById("calc_screen").value = String(result).slice(0,14);
 
             //see main.js ... make sure to clear all calculator object values
             calculator.calculate         = false;

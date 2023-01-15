@@ -1,7 +1,8 @@
 //Include separated files
-const simple = require('./simple.js');
-const scientific  = require('./scientific.js');
-const convert  = require('./convert.js');
+const simple     = require('./simple.js');
+const scientific = require('./scientific.js');
+const convert    = require('./convert.js');
+const length     = require('./length.js');
 const functions  = require('./functions.js');
 const operators  = require('./operators.js');
 
@@ -11,20 +12,18 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
   // To bring back cursor to calc_screen after every operation,numb,mode clicked
   document.getElementById('calc_screen').focus();
 
-  
-
   switch(e.target.dataset.type) {
     
     case "mode":
     let modeIndex = e.target.dataset.value; 
     //cycle thru array of calculator.modes        
-    let modeValue = (modeIndex + 1) % (calculator.modes.length); 
-    e.target.dataset.value = modeValue      
+    let modeValue = ( parseInt(modeIndex) + 1) % (calculator.modes.length); 
+    e.target.dataset.value = modeValue
     //assign mode to corresponding modes[key]
-    calculator.mode = calculator.modes[e.target.dataset.value] 
+    calculator.mode = calculator.modes[modeValue] 
     //show mode on calculator screen 
     document.getElementById("mode_screen").innerHTML = `Mode: ${ calculator.mode }`;
-    
+
     //hide all buttons
     let allDivs = document.getElementsByClassName(`functions`);
     for (const allDiv of allDivs) {
@@ -40,7 +39,7 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
 
     //hide operator buttons if converter mode
     let operator_buttons = document.getElementsByClassName(`operators`);    
-    if ( e.target.dataset.value == 2) {
+    if ( e.target.dataset.value == 2 || e.target.dataset.value == 3) {
       for (const operator of operator_buttons) {
         operator.classList.remove('active');
       }    
@@ -143,6 +142,10 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
         case "Converter":
         screenNumber = convert.convert(e, calculator);
         break;        
+
+        case "Length":
+        screenNumber = length.length(e, calculator);
+        break;          
         
         default:
         screenNumber = simple.simple(e, calculator);
@@ -157,9 +160,6 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
   document.getElementById("debugScreen").innerHTML = JSON.stringify(calculator);    
   
   //show number on calculator screen  
-  document.getElementById("calc_screen").value = screenNumber;          
-  //END EDITS    
-
-
-  
+  document.getElementById("calc_screen").value = (screenNumber !== undefined) ? screenNumber.slice(0,14) : 'Fetching Data...';     
+  //END EDITS      
 };
