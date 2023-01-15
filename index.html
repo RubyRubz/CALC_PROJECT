@@ -40,8 +40,39 @@
 							data-value = 0; for simple 
 							data-value = 1; for scientific
 							data-value = 2; for currency converter
+							data-value = 3; for length converter
 							-->								
 							<div class="col-8"><button class="btns btns-function-mode" data-value="0" data-type="mode">Mode</button></div>
+
+							<div class="col-6 functions function_Length" >
+								<select id="from_length" class="currency_drop">
+									<option value="">From</option>
+									<option value="mm">mm &nbsp; &nbsp; - Millimeter</option>
+									<option value="cm">cm &nbsp; &nbsp; - Centimeter</option>
+									<option value="dm">dm &nbsp; &nbsp; - Decimeter</option>
+									<option value="m">m &nbsp; &nbsp; - Meter</option>
+									<option value="km">km &nbsp; &nbsp; - Kilometer</option>
+									<option value="ft">ft &nbsp; &nbsp; - Feet</option>
+									<option value="in">in &nbsp; &nbsp; - Inch</option>
+									<option value="yd">yd &nbsp; &nbsp; - Yard</option>
+									<option value="mi">mi &nbsp; &nbsp; - Miles</option>
+    							</select>
+							</div>														
+
+							<div class="col-6 functions function_Length" >
+								<select id="to_length" class="currency_drop">
+									<option value="">To</option>
+									<option value="mm">mm &nbsp; &nbsp; - Millimeter</option>
+									<option value="cm">cm &nbsp; &nbsp; - Centimeter</option>
+									<option value="dm">dm &nbsp; &nbsp; - Decimeter</option>
+									<option value="m">m &nbsp; &nbsp; - Meter</option>
+									<option value="km">km &nbsp; &nbsp; - Kilometer</option>
+									<option value="ft">ft &nbsp; &nbsp; - Feet</option>
+									<option value="in">in &nbsp; &nbsp; - Inch</option>
+									<option value="yd">yd &nbsp; &nbsp; - Yard</option>
+									<option value="mi">mi &nbsp; &nbsp; - Miles</option>
+    							</select>
+							</div>								
 
 							<div class="col-6 functions function_Converter" >
 								<select id="from_drop" class="currency_drop">
@@ -351,7 +382,7 @@
 									<option value="zar">ZAR &nbsp; - South African Rand</option>
 									<option value="zmw">ZMW &nbsp; - Zambian kwacha</option>    
 								</select>
-							</div>								
+							</div>	
 
 							<div class="col-4 functions function_Scientific"><button class="btns" data-value="sin" data-type="function">sin</button></div>
 							<div class="col-4 functions function_Scientific"><button class="btns" data-value="cos" data-type="function">cos</button></div>
