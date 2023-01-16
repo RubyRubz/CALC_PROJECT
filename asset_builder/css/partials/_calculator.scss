@@ -1,4 +1,9 @@
 #calculator {
+  @include media-breakpoint-down(sm) {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }    
+
   position: relative;
   z-index: 2;
   width: 320px;
@@ -94,6 +99,7 @@
       padding: 0;
       border: 0;
       outline: none;
+      max-width: 97%;
 		}
 	}
 }

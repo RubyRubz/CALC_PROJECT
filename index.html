@@ -17,7 +17,10 @@
 
 			<p class="mt-2">A web-based calculator that doesn't skimp on simplicity or functionality. It has the basic operations and can be put in either mode: Simple Mode which is just that, a simple calculator; Apply Trigonometry mode where you can enable the calculation of sine, cosine, tangent, inverse tangent and uses circular functions; and Currency Converter mode which allows quick conversion for 150 currencies in real-time.</p>
 
-			<pre id="debugScreen" style="background: black; color: green; height: 80px; width: 100%; font-size: 14px; white-space: pre-wrap;"></pre>
+			<button class="btn btn-debug" type="button" data-toggle="collapse" data-target="#debugScreen" aria-expanded="false" aria-controls="debugScreen">
+		    	Toggle Debug Console
+		  	</button>
+			<pre id="debugScreen" class="collapse"></pre>
 		</div>
 
 		<div class="col-md-6 col-12 d-flex flex-column justify-content-center align-items-center" id="right-side">
@@ -40,8 +43,39 @@
 							data-value = 0; for simple 
 							data-value = 1; for scientific
 							data-value = 2; for currency converter
+							data-value = 3; for length converter
 							-->								
 							<div class="col-8"><button class="btns btns-function-mode" data-value="0" data-type="mode">Mode</button></div>
+
+							<div class="col-6 functions function_Length" >
+								<select id="from_length" class="currency_drop">
+									<option value="">From</option>
+									<option value="mm">mm &nbsp; &nbsp; - Millimeter</option>
+									<option value="cm">cm &nbsp; &nbsp; - Centimeter</option>
+									<option value="dm">dm &nbsp; &nbsp; - Decimeter</option>
+									<option value="m">m &nbsp; &nbsp; - Meter</option>
+									<option value="km">km &nbsp; &nbsp; - Kilometer</option>
+									<option value="ft">ft &nbsp; &nbsp; - Feet</option>
+									<option value="in">in &nbsp; &nbsp; - Inch</option>
+									<option value="yd">yd &nbsp; &nbsp; - Yard</option>
+									<option value="mi">mi &nbsp; &nbsp; - Miles</option>
+    							</select>
+							</div>														
+
+							<div class="col-6 functions function_Length" >
+								<select id="to_length" class="currency_drop">
+									<option value="">To</option>
+									<option value="mm">mm &nbsp; &nbsp; - Millimeter</option>
+									<option value="cm">cm &nbsp; &nbsp; - Centimeter</option>
+									<option value="dm">dm &nbsp; &nbsp; - Decimeter</option>
+									<option value="m">m &nbsp; &nbsp; - Meter</option>
+									<option value="km">km &nbsp; &nbsp; - Kilometer</option>
+									<option value="ft">ft &nbsp; &nbsp; - Feet</option>
+									<option value="in">in &nbsp; &nbsp; - Inch</option>
+									<option value="yd">yd &nbsp; &nbsp; - Yard</option>
+									<option value="mi">mi &nbsp; &nbsp; - Miles</option>
+    							</select>
+							</div>								
 
 							<div class="col-6 functions function_Converter" >
 								<select id="from_drop" class="currency_drop">
@@ -351,11 +385,15 @@
 									<option value="zar">ZAR &nbsp; - South African Rand</option>
 									<option value="zmw">ZMW &nbsp; - Zambian kwacha</option>    
 								</select>
-							</div>								
+							</div>	
 
 							<div class="col-4 functions function_Scientific"><button class="btns" data-value="sin" data-type="function">sin</button></div>
 							<div class="col-4 functions function_Scientific"><button class="btns" data-value="cos" data-type="function">cos</button></div>
 							<div class="col-4 functions function_Scientific"><button class="btns" data-value="tan" data-type="function">tan</button></div>	
+
+							<div class="col-4 functions function_Scientific"><button class="btns" data-value="asin" data-type="function">asin</button></div>
+							<div class="col-4 functions function_Scientific"><button class="btns" data-value="acos" data-type="function">acos</button></div>
+							<div class="col-4 functions function_Scientific"><button class="btns" data-value="atan" data-type="function">atan</button></div>	
 
 							<div class="col-4 functions function_Simple active"><button class="btns" data-value="reciprocal" data-type="function">1/x</button></div>
 							<div class="col-4 functions function_Simple active"><button class="btns" data-value="square" data-type="function">x²</button></div>
