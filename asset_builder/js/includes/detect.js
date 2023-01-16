@@ -160,6 +160,6 @@ exports.click =  (e, calculator) => { //anonymous function in es6 format
   document.getElementById("debugScreen").innerHTML = JSON.stringify(calculator);    
   
   //show number on calculator screen  
-  document.getElementById("calc_screen").value = (screenNumber !== undefined) ? screenNumber.slice(0,14) : 'Fetching Data...';     
+  document.getElementById("calc_screen").value = (screenNumber !== undefined) ? (screenNumber > 9999999999999) ? Number(screenNumber).toExponential(3) : String(screenNumber).slice(0,13) : 'Fetching Data...';     
   //END EDITS      
 };

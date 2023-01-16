@@ -1,4 +1,28 @@
 #left-side {
   position: relative;
   z-index: 2;
+  background-image: url('../images/calx_logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+
+  .btn-debug {
+    background: #fff;
+    border: 1px solid #eee;
+    outline: 1px solid #aaa;    
+    border-radius: 3px 3px 0 0 !important;    
+  }
+
+  #debugScreen {
+    background: black; 
+    color: green; 
+    height: 140px; 
+    width: 100%; 
+    font-size: 14px; 
+    white-space: pre-wrap;
+    padding: 15px;
+    border: 1px solid #fff;
+    outline: 1px solid #eee;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, .8);
+  }
 }

@@ -17,7 +17,10 @@
 
 			<p class="mt-2">A web-based calculator that doesn't skimp on simplicity or functionality. It has the basic operations and can be put in either mode: Simple Mode which is just that, a simple calculator; Apply Trigonometry mode where you can enable the calculation of sine, cosine, tangent, inverse tangent and uses circular functions; and Currency Converter mode which allows quick conversion for 150 currencies in real-time.</p>
 
-			<pre id="debugScreen" style="background: black; color: green; height: 80px; width: 100%; font-size: 14px; white-space: pre-wrap;"></pre>
+			<button class="btn btn-debug" type="button" data-toggle="collapse" data-target="#debugScreen" aria-expanded="false" aria-controls="debugScreen">
+		    	Toggle Debug Console
+		  	</button>
+			<pre id="debugScreen" class="collapse"></pre>
 		</div>
 
 		<div class="col-md-6 col-12 d-flex flex-column justify-content-center align-items-center" id="right-side">
