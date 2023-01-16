@@ -7103,7 +7103,27 @@ footer {
 
 #left-side {
   position: relative;
-  z-index: 2; }
+  z-index: 2;
+  background-image: url("../images/calx_logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top; }
+  #left-side .btn-debug {
+    background: #fff;
+    border: 1px solid #eee;
+    outline: 1px solid #aaa;
+    border-radius: 3px 3px 0 0 !important; }
+  #left-side #debugScreen {
+    background: black;
+    color: green;
+    height: 140px;
+    width: 100%;
+    font-size: 14px;
+    white-space: pre-wrap;
+    padding: 15px;
+    border: 1px solid #fff;
+    outline: 1px solid #eee;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.8); }
 
 #calculator {
   position: relative;
@@ -7112,6 +7132,10 @@ footer {
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.5);
   outline: 1px solid #ccc; }
+  @media (max-width: 767.98px) {
+    #calculator {
+      margin-top: 30px;
+      margin-bottom: 30px; } }
   #calculator .functions {
     display: none; }
     #calculator .functions.active {
@@ -7173,7 +7197,7 @@ footer {
     #calculator .screen input {
       background: transparent;
       margin: 0;
-      padding: 0 9px;
+      padding: 0;
       border: 0;
       outline: none;
       max-width: 97%; }
