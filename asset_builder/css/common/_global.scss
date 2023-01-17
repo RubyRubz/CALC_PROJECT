@@ -1,15 +1,23 @@
 body {
   @include media-breakpoint-down(md) {
     font-size: 18px;
+    border: 1px solid green;
   }  
 
   @include media-breakpoint-down(sm) {
     font-size: 16px;
+    border: 1px solid red;
+    background-size: 80vw;
+    background-position: center top 100px;
   }  
 
   background: #a0d7ff;
   font-family: 'Pontano Sans', sans-serif;
-  font-size: 24px;  
+  font-size: 24px;
+  background-image: url('../images/calx_logo.png');
+  background-size: 50vw;
+  background-repeat: no-repeat;
+  background-position: center left;
 }
 
 h1,
